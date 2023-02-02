@@ -1,6 +1,6 @@
 import { React, useState } from "react";
 
-const CreateModal = ({ url }) => {
+const CreateModal = ({ url, addData }) => {
   const [post, setPost] = useState({ title: "", userId: 0, body: "" });
 
   const handleSubmit = async () => {
@@ -11,7 +11,12 @@ const CreateModal = ({ url }) => {
         headers: {
           "Content-type": "application/json; charset=UTF-8"
         }
-      }).then(response => console.log(response));
+      }).then(response => {
+        console.log("Response status: ", response.status);
+      });
+
+      addData(post);
+
     } catch (err) {
       console.log(err.message);
     }
@@ -29,7 +34,7 @@ const CreateModal = ({ url }) => {
   return (
     <div
       className="modal fade"
-      id="exampleModal"
+      id="createModal"
       tabIndex={-1}
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -102,6 +107,7 @@ const CreateModal = ({ url }) => {
             <button
               type="button"
               className="btn btn-primary"
+              data-bs-dismiss="modal"
               onClick={handleSubmit}
             >
               Create
