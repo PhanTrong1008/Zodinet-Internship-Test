@@ -65,7 +65,7 @@ const App = () => {
       <div className="row">
         {data.map(post => {
           return (
-            <div className="col-3">
+            <div className="col-lg-3 col-md-2">
               <div
                 className="card mt-3"
                 style={{ width: "18rem" }}
