@@ -6,11 +6,7 @@ class Stack {
   find(item) {
     const result = this.stack.filter((each) => each == item);
 
-    if (result.length > 0) {
-        return true;
-    }
-
-    return false;
+    return result.length > 0 ? true : false;
   }
 
   push(item) {
@@ -37,3 +33,6 @@ stack.push(3122);
 stack.push(645);
 
 stack.pop();
+
+console.log(stack);
+console.log(stack.find(423));
