@@ -4,9 +4,11 @@ class Stack {
   }
 
   find(item) {
-    const result = this.stack.filter((each) => each == item);
+    const index = this.stack.indexOf(item);
 
-    return result.length > 0 ? true : false;
+    if (index !== -1) return index;
+
+    return "Not Found";
   }
 
   push(item) {
@@ -14,6 +16,10 @@ class Stack {
   }
 
   pop() {
+    if (this.stack.length == 0) {
+      return "Empty Stack";
+    }
+
     return this.stack.pop();
   }
 
@@ -32,7 +38,5 @@ stack.push(423);
 stack.push(3122);
 stack.push(645);
 
-stack.pop();
-
 console.log(stack);
-console.log(stack.find(423));
+console.log("Index: ", stack.find(645));
